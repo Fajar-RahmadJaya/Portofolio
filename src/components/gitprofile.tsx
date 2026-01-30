@@ -19,15 +19,9 @@ import AvatarCard from './avatar-card';
 import { Profile } from '../interfaces/profile';
 import DetailsCard from './details-card';
 import SkillCard from './skill-card';
-import ExperienceCard from './experience-card';
 import EducationCard from './education-card';
-import CertificationCard from './certification-card';
 import { GithubProject } from '../interfaces/github-project';
 import GithubProjectCard from './github-project-card';
-import ExternalProjectCard from './external-project-card';
-import BlogCard from './blog-card';
-import Footer from './footer';
-import PublicationCard from './publication-card';
 
 /**
  * Renders the GitProfile component.
@@ -217,18 +211,6 @@ const GitProfile = ({ config }: { config: Config }) => {
                       skills={sanitizedConfig.skills}
                     />
                   )}
-                  {sanitizedConfig.experiences.length !== 0 && (
-                    <ExperienceCard
-                      loading={loading}
-                      experiences={sanitizedConfig.experiences}
-                    />
-                  )}
-                  {sanitizedConfig.certifications.length !== 0 && (
-                    <CertificationCard
-                      loading={loading}
-                      certifications={sanitizedConfig.certifications}
-                    />
-                  )}
                   {sanitizedConfig.educations.length !== 0 && (
                     <EducationCard
                       loading={loading}
@@ -248,42 +230,10 @@ const GitProfile = ({ config }: { config: Config }) => {
                       googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
                     />
                   )}
-                  {sanitizedConfig.publications.length !== 0 && (
-                    <PublicationCard
-                      loading={loading}
-                      publications={sanitizedConfig.publications}
-                    />
-                  )}
-                  {sanitizedConfig.projects.external.projects.length !== 0 && (
-                    <ExternalProjectCard
-                      loading={loading}
-                      header={sanitizedConfig.projects.external.header}
-                      externalProjects={
-                        sanitizedConfig.projects.external.projects
-                      }
-                      googleAnalyticId={sanitizedConfig.googleAnalytics.id}
-                    />
-                  )}
-                  {sanitizedConfig.blog.display && (
-                    <BlogCard
-                      loading={loading}
-                      googleAnalyticsId={sanitizedConfig.googleAnalytics.id}
-                      blog={sanitizedConfig.blog}
-                    />
-                  )}
                 </div>
               </div>
             </div>
           </div>
-          {sanitizedConfig.footer && (
-            <footer
-              className={`p-4 footer ${BG_COLOR} text-base-content footer-center`}
-            >
-              <div className="card card-sm bg-base-100 shadow-sm">
-                <Footer content={sanitizedConfig.footer} loading={loading} />
-              </div>
-            </footer>
-          )}
         </>
       )}
     </div>
